@@ -1,7 +1,7 @@
 Config
 ======
 
-A Configuration container
+A Basic configuration container
 
 Installation
 ------------
