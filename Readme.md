@@ -28,8 +28,16 @@ Usage
 ```php
 use Netsilik\Lib\Config;
 
-var_dump( Config::database('host', 'http://example.com') );
-var_dump( Config::database('host') );
-var_dump( Config::database('undefined') );
-var_dump( Config::database('host', 'http://example.com') );
+
+// Set a directive
+var_dump( Config::database('host', 'http://example.com') ); // returns: Void
+
+// Get a directive
+var_dump( Config::database('host') ); // returns: http://example.com
+
+// Getting an undefined directive triggers an E_USER_WARNING
+var_dump( Config::database('undefined') ); // Triggers E_USER_WARNING:  Configuration directive database.undefined undefined in __FILE__ on line __LINE__
+
+// Attempting to set a directive that has been set before, triggers an E_USER_ERROR
+var_dump( Config::database('host', 'http://example.com') ); // Triggers E_USER_ERROR: Configuration directive database.host already defined in __FILE__ on line __LINE__
 ```
