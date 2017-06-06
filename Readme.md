@@ -26,6 +26,7 @@ Usage
 -----
 
 ```php
+<?php
 use Netsilik\Lib\Config;
 
 
